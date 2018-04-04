@@ -1,0 +1,27 @@
+
+<div class="container" *ngIf="!user">
+  <h3>enter your name</h3>
+  <form class="form-group"> <!-- (ngSubmit)="enterName()" -->
+    <input type="text" [(ngModel)]="name" placeholder="Name" name="name" class="form-control col-md-4">
+    <button (click)="enterName()" class="btn btn-primary">Login</button>
+  </form>
+</div>
+
+<div class="container" *ngIf="user">
+  <h3>{{user.name}}</h3>
+  <form>
+    <input type="text" placeholder="Message" [(ngModel)]="messageContent" name="message" class="form-control col-md-4">
+    <button (click)="sendMessage()" class="btn btn-success">Send</button>
+  </form>
+  <div *ngFor="let message of messages" class="row">
+    <div class="col-md-4">
+      <strong>{{message.from.name}}</strong>
+    </div>
+    <div class="col-md-4">
+      <strong>{{message.content}}</strong>
+    </div>
+    <div class="col-md-4">
+      <small>{{message.dateTime | date:'short'}}</small>
+    </div>
+  </div>
+</div>
