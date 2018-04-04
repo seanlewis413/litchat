@@ -1,0 +1,9 @@
+<div class="container" *ngIf="!user">
+  <h3>Enter Name</h3>
+  <form class="form-group"> <!-- (ngSubmit)="enterName()" -->
+    <input type="text" [(ngModel)]="name" placeholder="Name" name="name" class="form-control col-md-4">
+    <button (click)="enterName()" class="btn btn-primary">Login</button>
+    <h5>or</h5>
+    <button (click)="loginWithGoogle()" class="btn btn-primary">Login with Google</button>
+  </form>
+</div>

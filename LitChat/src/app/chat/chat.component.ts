@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SocketsService } from "../services/sockets.service";
 import { User, Message, Action, Event } from "../enums";
 import { Router } from "@angular/router";
+import { StateService } from '../services/state.service';
 
 
 @Component({
@@ -12,18 +13,18 @@ import { Router } from "@angular/router";
 export class ChatComponent implements OnInit {
 
   action = Action;
-  name: string;
   user: User = null;
   messages: Message[] = [];
   messageContent: string;
   ioConnection: any;
 
   constructor(private socketService: SocketsService,
-    private router: Router) { }
+              private router: Router,
+              private stateService: StateService) { }
 
   ngOnInit() {
     this.initIoConnection();
-    // this.sendMessage("testing...")
+    this.user = this.stateService.getUser();
   }
 
   initIoConnection(): void {
@@ -45,12 +46,6 @@ export class ChatComponent implements OnInit {
         console.log('disconnected');
       });
   }
-
-
-  enterName(){
-    this.user = new User(this.name);
-  }
-
 
   sendMessage(): void {
     console.log('sending message... ', this.messageContent);
