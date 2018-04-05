@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     console.log("loaded...");
+    console.log(this.authService.isLoggedIn());
     if (this.authService.isLoggedIn()){
       this.router.navigate(['chat']);
     } else {

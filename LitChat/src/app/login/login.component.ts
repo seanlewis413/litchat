@@ -32,4 +32,13 @@ export class LoginComponent implements OnInit {
         .then(() => this.router.navigate(['chat']));
   }
 
+  signInWithFacebook() {
+    this.authService.signInWithFacebook()
+    .then((res) => { 
+      this.stateService.setUser(res.user.displayName);
+        this.router.navigate(['dashboard'])
+      })
+    .catch((err) => console.log(err));
+  }
+
 }

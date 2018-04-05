@@ -2,8 +2,10 @@
   <h3>Enter Name</h3>
   <form class="form-group"> <!-- (ngSubmit)="enterName()" -->
     <input type="text" [(ngModel)]="name" placeholder="Name" name="name" class="form-control col-md-4">
-    <button (click)="enterName()" class="btn btn-primary">Login</button>
+    <button (click)="enterName()" class="btn btn-success">Login</button>
     <h5>or</h5>
     <button (click)="loginWithGoogle()" class="btn btn-primary">Login with Google</button>
+    <h5>or</h5>
+    <button (click)="signInWithFacebook()" class="btn btn-primary">Login with Facebook</button>
   </form>
 </div>

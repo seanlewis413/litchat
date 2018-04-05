@@ -33,7 +33,6 @@ export class ChatComponent implements OnInit {
     this.ioConnection = this.socketService.onMessage()
       .subscribe((message: Message) => {
         this.messages.push(message);
-        this.messages.sort(function(){return Number(message.dateTime)});
       });
 
     this.socketService.onEvent(Event.CONNECT)

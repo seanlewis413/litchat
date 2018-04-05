@@ -5,7 +5,7 @@ import { Event, Message } from '../enums';
 
 import * as socketIo from 'socket.io-client';
 
-const SERVER_URL = 'http://localhost:3000';
+const SERVER_URL = 'http://10.13.30.104:3000';
 
 @Injectable()
 export class SocketsService {
